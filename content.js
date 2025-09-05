@@ -17,7 +17,6 @@ function getArticleText() {
 
 // Set up message listener immediately
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('Message received:', request); // Debug log
     if (request.type === "GET_ARTICLE_TEXT") {
         const text = getArticleText();
         if (!text) {
@@ -30,5 +29,3 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     return true; // Keep the message channel open
 });
-
-console.log('Content script loaded'); // Debug log

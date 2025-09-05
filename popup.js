@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       await navigator.clipboard.writeText(textToCopy);
     } catch (err) {
-      console.error("Failed to copy:", err);
       copyBtn.textContent = "Failed!";
       setTimeout(() => (copyBtn.textContent = "Copy"), 2000);
       return;
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         files: ["content.js"],
       });
     } catch (error) {
-      console.error("Script injection error:", error);
       throw new Error("Failed to initialize content script");
     }
   }
@@ -48,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await chrome.storage.sync.get(["geminiApiKey"]);
       return result.geminiApiKey;
     } catch (error) {
-      console.error("Error fetching API key:", error);
       throw new Error("API key not found. Please set it in options.");
     }
   }
@@ -108,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "No summary available."
       );
     } catch (error) {
-      console.error("Error calling Gemini API:", error);
       throw new Error("Failed to generate summary. Please try again later.");
     }
   }
@@ -172,8 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Render summary with line breaks + bullets
         summaryBox.innerHTML = summary
-          .replace(/^- /gm, "• ")   // replace "- " with bullet symbol
-          .replace(/\n/g, "<br><br>");  // preserve blank lines for readability
+          .replace(/^- /gm, "• ")   
+          .replace(/\n/g, "<br><br>");  
       } else {
         summaryBox.textContent = "No content found on this page";
       }
