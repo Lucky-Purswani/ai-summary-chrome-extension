@@ -18,7 +18,7 @@ AI Summary is a Chrome extension powered by Google's Gemini AI that provides ins
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/ai-summary-chrome
+   git clone https://github.com/yourusername/ai-summary-chrome-extension
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right
