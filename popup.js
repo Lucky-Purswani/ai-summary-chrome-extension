@@ -178,8 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         summaryBox.textContent = "No content found on this page";
       }
     } catch (error) {
-      console.error("Error:", error);
-      summaryBox.textContent = `Error: ${error.message}`;
+      summaryBox.textContent = `This webpage does not contain readable <article> or <p> content.`;
     }
   });
 });

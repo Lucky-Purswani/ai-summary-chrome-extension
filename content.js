@@ -20,7 +20,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log('Message received:', request); // Debug log
     if (request.type === "GET_ARTICLE_TEXT") {
         const text = getArticleText();
-        sendResponse({ text: text });
+        if (!text) {
+        sendResponse({
+            error: "This webpage does not contain readable <article> or <p> content.",
+        });
+        } else {
+        sendResponse({ text });
+        }
     }
     return true; // Keep the message channel open
 });
