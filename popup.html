@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Summary</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .summary-container {
+            max-width: 768px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+            border: 1px solid #333333;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffff00;
+            padding-bottom: 15px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffff00;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .dropdown {
+            padding: 8px 12px;
+            border: 2px solid #ffff00;
+            border-radius: 4px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+        }
+
+        .dropdown:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: 2px solid #ffff00;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-summarize {
+            background-color: #ffff00;
+            color: #000000;
+        }
+
+        .btn-summarize:hover {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-copy {
+            background-color: #000000;
+            color: #ffff00;
+            height: 36px;
+            width: 80px;
+        }
+
+        .btn-copy:hover {
+            background-color: #333333;
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .summary-box {
+            width: 100%;
+            height: 288px;
+            border: 2px solid #ffff00;
+            border-radius: 4px;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+            overflow-y: auto;
+            resize: vertical;
+            min-height: 192px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .summary-box:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+        }
+
+        .summary-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .summary-box::-webkit-scrollbar-track {
+            background: #333333;
+        }
+
+        .summary-box::-webkit-scrollbar-thumb {
+            background: #ffff00;
+            border-radius: 4px;
+        }
+
+        .summary-box::-webkit-scrollbar-thumb:hover {
+            background: #ffffff;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .dropdown option {
+            background: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="summary-container">
+        <div class="header">
+            <h1 class="title">AI Summary</h1>
+            <div class="controls">
+                <select class="dropdown">
+                    <option value="brief">Brief</option>
+                    <option value="detailed">Detailed</option>
+                    <option value="bullet-points">Bullet Points</option>
+                    <option value="key-insights">Key Insights</option>
+                </select>
+                <button id="summaryBtn" class="btn btn-summarize">Summarize</button>
+                <button class="btn btn-copy">Copy</button>
+            </div>
+        </div>
+        
+        <div id="summary" class="summary-box">
+            Select a type and click Summarize.
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
