@@ -5,11 +5,10 @@ AI Summary is a Chrome extension powered by Google's Gemini AI that provides ins
 
 ## 📸 Screenshots  
 
-### Example 1: Summarizing a blog  
-![Blog Summary](./assets/demo_photo1.png)  
-
-### Example 2: Summarizing my portfolio  
-![Portfolio Summary](./assets/demo_photo2.png)  
+<p float="left">
+  <img src="./assets/demo_photo1.png" alt="Blog Summary" width="400"/>
+  <img src="./assets/demo_photo2.png" alt="Portfolio Summary" width="400"/>
+</p> 
 
 ## Features
 - Multiple summary types:
