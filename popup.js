@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "No summary available."
       );
     } catch (error) {
-      throw new Error("Failed to generate summary. Please try again later.");
+      throw error;
     }
   }
 
@@ -174,7 +174,17 @@ document.addEventListener("DOMContentLoaded", () => {
         summaryBox.textContent = "No content found on this page";
       }
     } catch (error) {
-      summaryBox.textContent = `This webpage does not contain readable <article> or <p> content.`;
-    }
+  console.error("Error occurred:", error);
+
+  if (error.message.includes("API key") || error.message.includes("Permission denied")) {
+    summaryBox.textContent = "❌ Invalid API key. Please check your Gemini API key.";
+  } else if (error.message.includes("content script")) {
+    summaryBox.textContent = "⚠️ Failed to load content script. Please refresh.";
+  } else if (error.message.includes("<article>") || error.message.includes("<p>")) {
+    summaryBox.textContent = "This webpage does not contain readable <article> or <p> content.";
+  } else {
+    summaryBox.textContent = "⚠️ Unexpected error. Please try again later.";
+  }
+}
   });
 });
