@@ -3,6 +3,14 @@
 ## Overview
 AI Summary is a Chrome extension powered by Google's Gemini AI that provides instant, customizable summaries of web pages. The extension helps users save time by generating concise summaries of articles, blog posts, and other web content directly in their browser.
 
+## 📸 Screenshots  
+
+### Example 1: Summarizing a blog  
+![Blog Summary](./assets/demo_photo1.png)  
+
+### Example 2: Summarizing my portfolio  
+![Portfolio Summary](./assets/demo_photo2.png)  
+
 ## Features
 - Multiple summary types:
   - Brief (50-word quick summary)
